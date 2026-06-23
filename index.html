@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sohil Agrawal — Data &amp; AI Solution Architect</title>
+<meta name="description" content="Sohil Agrawal — Data & AI Solution Architect. Generative & Agentic AI, RAG, multi-agent systems on Azure & GCP. 15 years experience." />
+<style>
+  :root{
+    --bg:#ffffff; --surface:#f6f8fa; --card:#ffffff; --border:#e4e8ee;
+    --text:#1c2128; --muted:#5b6573; --accent:#1f6feb; --accent-2:#7c3aed;
+    --chip:#eef2f7; --chip-text:#33415c; --shadow:0 1px 3px rgba(20,30,50,.06),0 8px 24px rgba(20,30,50,.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0d1117; --surface:#0f1620; --card:#161b22; --border:#26303d;
+      --text:#e6edf3; --muted:#9aa6b2; --accent:#58a6ff; --accent-2:#bc8cff;
+      --chip:#1c2530; --chip-text:#b9c4d0; --shadow:0 1px 3px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+    }
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:980px;margin:0 auto;padding:0 24px}
+  section{padding:64px 0;border-top:1px solid var(--border)}
+  h2{font-size:1.5rem;letter-spacing:-.01em;margin-bottom:24px;display:flex;align-items:center;gap:10px}
+  h2 .bar{width:4px;height:24px;border-radius:4px;background:linear-gradient(180deg,var(--accent),var(--accent-2))}
+  h3{font-size:1.05rem;margin-bottom:4px}
+
+  /* Nav */
+  nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);
+      backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  nav .brand{font-weight:700;letter-spacing:-.02em}
+  nav .links{display:flex;gap:22px}
+  nav .links a{color:var(--muted);font-size:.92rem;font-weight:500}
+  nav .links a:hover{color:var(--text);text-decoration:none}
+  @media(max-width:640px){nav .links{display:none}}
+
+  /* Hero */
+  .hero{padding:84px 0 64px;border-top:none;text-align:center}
+  .hero .tag{display:inline-block;font-size:.8rem;font-weight:600;color:var(--accent);
+    background:var(--chip);padding:6px 14px;border-radius:100px;margin-bottom:20px;border:1px solid var(--border)}
+  .hero h1{font-size:clamp(2rem,6vw,3.2rem);letter-spacing:-.03em;line-height:1.1;margin-bottom:14px}
+  .hero h1 .grad{background:linear-gradient(120deg,var(--accent),var(--accent-2));
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .hero p.sub{font-size:1.12rem;color:var(--muted);max-width:680px;margin:0 auto 28px}
+  .hero .loc{color:var(--muted);font-size:.95rem;margin-bottom:26px}
+  .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:10px;
+    font-weight:600;font-size:.95rem;border:1px solid var(--border);transition:transform .15s,box-shadow .15s}
+  .btn:hover{transform:translateY(-2px);text-decoration:none;box-shadow:var(--shadow)}
+  .btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .btn.ghost{background:var(--card);color:var(--text)}
+
+  /* Stat row */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+  @media(max-width:680px){.stats{grid-template-columns:repeat(2,1fr)}}
+  .stat{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;text-align:center;box-shadow:var(--shadow)}
+  .stat .num{font-size:1.7rem;font-weight:800;letter-spacing:-.02em;
+    background:linear-gradient(120deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .stat .lbl{font-size:.82rem;color:var(--muted);margin-top:4px}
+
+  /* Skills */
+  .skillgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  @media(max-width:680px){.skillgrid{grid-template-columns:1fr}}
+  .skillcard{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;box-shadow:var(--shadow)}
+  .skillcard h3{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:14px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{background:var(--chip);color:var(--chip-text);font-size:.82rem;font-weight:500;
+    padding:5px 11px;border-radius:8px;border:1px solid var(--border)}
+
+  /* Timeline */
+  .tl{position:relative;padding-left:28px}
+  .tl::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--border)}
+  .job{position:relative;padding-bottom:32px}
+  .job:last-child{padding-bottom:0}
+  .job::before{content:"";position:absolute;left:-24px;top:6px;width:12px;height:12px;border-radius:50%;
+    background:var(--accent);border:3px solid var(--bg);box-shadow:0 0 0 2px var(--accent)}
+  .job .meta{font-size:.85rem;color:var(--muted);margin-bottom:8px}
+  .job .role{font-weight:600}
+  .job ul{margin:10px 0 0 18px}
+  .job li{margin-bottom:6px;font-size:.94rem}
+
+  /* Projects */
+  .projgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  @media(max-width:680px){.projgrid{grid-template-columns:1fr}}
+  .proj{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;box-shadow:var(--shadow);
+    display:flex;flex-direction:column;transition:transform .15s,box-shadow .15s}
+  .proj:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(20,30,50,.12)}
+  .proj .badge{font-size:.72rem;font-weight:600;color:var(--accent-2);margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em}
+  .proj p{font-size:.92rem;color:var(--muted);margin:8px 0 16px}
+  .proj .tech{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+  .proj .tech span{font-size:.74rem;background:var(--chip);color:var(--chip-text);padding:3px 9px;border-radius:6px}
+
+  /* two-col */
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:680px){.twocol{grid-template-columns:1fr}}
+  .panel{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;box-shadow:var(--shadow)}
+  .panel ul{margin-left:18px}
+  .panel li{margin-bottom:7px;font-size:.93rem}
+  .domain{display:flex;flex-wrap:wrap;gap:10px}
+  .domain .d{background:var(--chip);border:1px solid var(--border);border-radius:10px;padding:10px 14px;font-size:.9rem;font-weight:500}
+
+  footer{border-top:1px solid var(--border);padding:40px 0;text-align:center;color:var(--muted);font-size:.9rem}
+  footer .btns{margin-bottom:16px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <span class="brand">Sohil Agrawal</span>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#more">More</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="tag">Data &amp; AI Solution Architect</span>
+    <h1>Building <span class="grad">production AI</span><br/>that moves the business.</h1>
+    <p class="sub">15 years turning complex business challenges into high-value, AI-powered solutions on Azure &amp; GCP — hands-on from discovery to production as a Forward Deployed Engineer.</p>
+    <p class="loc">📍 Hyderabad, India</p>
+    <div class="btns">
+      <a class="btn primary" href="https://www.linkedin.com/in/sohil-agrawal/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/agrawalsohil" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="num">15 yrs</div><div class="lbl">Experience</div></div>
+      <div class="stat"><div class="num">13</div><div class="lbl">Agent AI program</div></div>
+      <div class="stat"><div class="num">92%</div><div class="lbl">RAG accuracy</div></div>
+      <div class="stat"><div class="num">28×</div><div class="lbl">Faster delivery</div></div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <h2><span class="bar"></span>About</h2>
+    <p>Data &amp; AI Solution Architect specialising in <strong>Generative &amp; Agentic AI on Microsoft Azure</strong> — building production <strong>RAG</strong> and <strong>multi-agent</strong> systems (Azure OpenAI, Azure AI Foundry) with human-in-the-loop review and Responsible AI practices. Grounded in Lead Data Engineering expertise across Azure, GCP and Snowflake, and embedded with customers from discovery to production as a Forward Deployed Engineer.</p>
+    <br/>
+    <p>Recent work includes a <strong>13-agent enterprise agentic-AI program</strong> (6 connected POCs in 20 weeks, now progressing to MVP), a productionized <strong>92%-accuracy RAG LLM application</strong>, and cross-cloud data platforms at billions-of-rows scale. Hands-on in <strong>Python</strong> and <strong>SQL</strong>, accelerated by Claude Code and GitHub Copilot.</p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2><span class="bar"></span>Core Skills</h2>
+    <div class="skillgrid">
+      <div class="skillcard">
+        <h3>Generative &amp; Agentic AI</h3>
+        <div class="chips">
+          <span class="chip">RAG</span><span class="chip">Multi-agent orchestration</span>
+          <span class="chip">Tool / function calling</span><span class="chip">MCP</span>
+          <span class="chip">Human-in-the-loop</span><span class="chip">LLM eval &amp; observability</span>
+          <span class="chip">Guardrails</span><span class="chip">Responsible AI &amp; Governance</span>
+        </div>
+      </div>
+      <div class="skillcard">
+        <h3>Solution Architecture</h3>
+        <div class="chips">
+          <span class="chip">Use-case discovery</span><span class="chip">Stakeholder workshops</span>
+          <span class="chip">Cost / security / scalability tradeoffs</span>
+          <span class="chip">POC → MVP → Production</span>
+        </div>
+      </div>
+      <div class="skillcard">
+        <h3>Cloud &amp; Data Engineering</h3>
+        <div class="chips">
+          <span class="chip">Azure</span><span class="chip">GCP</span><span class="chip">Snowflake</span>
+          <span class="chip">Azure Data Factory</span><span class="chip">Databricks</span>
+          <span class="chip">BigQuery</span><span class="chip">Kafka</span><span class="chip">Microsoft Fabric</span>
+        </div>
+      </div>
+      <div class="skillcard">
+        <h3>AI Platforms &amp; Dev Tools</h3>
+        <div class="chips">
+          <span class="chip">Azure AI Foundry</span><span class="chip">Azure OpenAI</span>
+          <span class="chip">Azure AI Search</span><span class="chip">Document Intelligence</span>
+          <span class="chip">Vector DBs</span><span class="chip">Claude Code</span><span class="chip">GitHub Copilot</span>
+        </div>
+      </div>
+      <div class="skillcard">
+        <h3>Languages</h3>
+        <div class="chips">
+          <span class="chip">Python</span><span class="chip">Advanced SQL</span><span class="chip">Unix shell scripting</span>
+        </div>
+      </div>
+      <div class="skillcard">
+        <h3>Deployment &amp; DevOps</h3>
+        <div class="chips">
+          <span class="chip">Docker</span><span class="chip">Azure App Service</span><span class="chip">REST APIs</span>
+          <span class="chip">Azure DevOps</span><span class="chip">GitHub Actions</span><span class="chip">CI/CD</span><span class="chip">Agile / SAFe</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <h2><span class="bar"></span>Experience</h2>
+    <div class="tl">
+      <div class="job">
+        <div class="role">Data &amp; AI Solution Architect — Cognizant</div>
+        <div class="meta">Hyderabad, India · Sep 2021 – Present</div>
+        <ul>
+          <li>Architected and built a <strong>13-agent enterprise agentic-AI program</strong> for National Grid — an intelligent knowledge-graph platform unifying siloed, expert-dependent workflows — from discovery to funded POC in 20 weeks (70%+ faster). Owned HLD/LLD; integrated 6 ML models and 23 data sources (1.45M data points); aligned 36+ stakeholders; deployed via Docker → Azure App Service. Two MVPs with a projected <strong>~£11M/yr</strong> business case.</li>
+          <li><strong>Sanction Document Validation &amp; Intelligence (SDIM):</strong> 60% faster sanction decisions and 5–10× faster submission review, releasing 20 weeks/yr of senior-reviewer capacity (~£3M/yr).</li>
+          <li><strong>Contractor Cost Benchmarking &amp; Validation:</strong> evidence-based cost challenges projected to cut sanction costs ~£8M/yr, with 30% business adoption in year one.</li>
+          <li>Built a <strong>RAG Tax-Code Classifier</strong> (LLM + vector DB) for Albertsons at 92% accuracy with HITL review — collapsing tax-code generation from 28 days to 1 day (28× faster).</li>
+          <li>Led cross-cloud data migrations at scale (Snowflake → BigQuery), accelerating delivery ~25% via AI code assistants, with 99%+ data quality and minimal downtime.</li>
+          <li>Built reusable batch &amp; streaming ingestion frameworks (config-driven ETL) spanning 45+ ADF pipelines and 70+ data sources at billions-of-rows scale; migrated batch to real-time streaming.</li>
+          <li>Major contributor to the Data &amp; AI Centre of Excellence — codified agentic patterns, Responsible-AI governance, security and cost-optimization into reusable assets enabling 5+ new engagements. Managed and mentored a team of 10+.</li>
+        </ul>
+      </div>
+      <div class="job">
+        <div class="role">Lead Data Engineer — CGI</div>
+        <div class="meta">Hyderabad, India &amp; Toronto, Canada · Sep 2016 – Sep 2021</div>
+        <ul>
+          <li>Consolidated custom client products and databases into a single configurable product, cutting infrastructure costs ~60%.</li>
+          <li>Implemented the Derivatives feature in CGI Wealth360 Fund Accounting (used by top-tier Canadian banks) — a deal-critical capability that retained at-risk clients.</li>
+          <li>Designed DR strategy and automated CI/CD pipelines, saving 250+ manual hours/week; modernized the Unix platform for reliability and longevity.</li>
+          <li>Led end-to-end delivery, mentored developers, and drove client architecture as onsite technical liaison.</li>
+        </ul>
+      </div>
+      <div class="job">
+        <div class="role">Sr. Software Engineer — Capgemini</div>
+        <div class="meta">Bangalore, India &amp; Stockholm, Sweden · Dec 2013 – Sep 2016</div>
+        <ul>
+          <li>Built multilingual debt-collection apps (Swedish, Finnish, English), standardizing workflows and accelerating market rollouts.</li>
+          <li>Integrated Managed File Transfer for 100+ vendors to automate exchanges and cut manual reconciliation.</li>
+          <li>Acted as client SPOC; led onsite requirements in Stockholm and Oslo.</li>
+        </ul>
+      </div>
+      <div class="job">
+        <div class="role">Software Engineer — Infosys Ltd.</div>
+        <div class="meta">Chennai, India · Feb 2011 – Dec 2013</div>
+        <ul>
+          <li>Migrated healthcare legacy systems to ICD-10 for CVS Caremark and implemented HIPAA-compliant claim forms with enhanced reporting analytics.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2><span class="bar"></span>Featured Projects</h2>
+    <div class="projgrid">
+      <a class="proj" href="https://github.com/agrawalsohil/mail_cleanup" target="_blank" rel="noopener">
+        <div class="badge">Open Source</div>
+        <h3>🧹 Gmail Cleanup</h3>
+        <p>Reusable multi-user web app that safely bulk-cleans an inbox — cleared 51.9K emails / 2.74 GB in one pass (~69.8K total). Deliberately rule-based for auditable deletes, 90 tests, Dockerized.</p>
+        <div class="tech"><span>FastAPI</span><span>React</span><span>Gmail API</span><span>Docker</span></div>
+      </a>
+      <a class="proj" href="https://github.com/agrawalsohil/trade360" target="_blank" rel="noopener">
+        <div class="badge">In Development</div>
+        <h3>📈 Multi-Agent Stock Research Assistant</h3>
+        <p>Supervisor-led multi-agent system that ingests market data, runs RAG over filings and news, and produces cited, analyst-style briefs with guardrails and faithfulness evals.</p>
+        <div class="tech"><span>Python</span><span>LangGraph</span><span>Vector DB</span><span>RAG</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="more">
+  <div class="wrap">
+    <h2><span class="bar"></span>Domain Expertise</h2>
+    <div class="domain">
+      <div class="d">⚡ Energy &amp; Utilities</div>
+      <div class="d">🛒 Retail &amp; E-commerce</div>
+      <div class="d">🏦 Banking &amp; Financial Services</div>
+      <div class="d">🏥 Healthcare &amp; Pharmacy</div>
+    </div>
+    <br/><br/>
+    <div class="twocol">
+      <div class="panel">
+        <h3>🎓 Certifications &amp; Learning</h3>
+        <ul>
+          <li>Microsoft Certified: Azure Data Engineer Associate (DP-203)</li>
+          <li>Microsoft: Azure Data Fundamentals &amp; Azure Fundamentals</li>
+          <li>Anthropic Academy — full course track (Claude development &amp; agentic AI)</li>
+          <li>SAFe Agile Practitioner · ITIL v3</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>🏆 Awards &amp; Recognition</h3>
+        <ul>
+          <li>Generative AI Hackathon — 3rd Place (2024)</li>
+          <li>Top Innovator (2023) · Star Performer (2022)</li>
+          <li>Delivery Excellence Award — DB Cloud Migration (2020)</li>
+          <li>Pegasus Award (2018) · Technical Lead of the Year (2014)</li>
+        </ul>
+      </div>
+    </div>
+    <br/>
+    <div class="panel">
+      <h3>📚 Education</h3>
+      <ul>
+        <li>B.Tech, Information Technology (2006–2010) — Rajiv Gandhi Technical University</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="btns">
+      <a class="btn primary" href="https://www.linkedin.com/in/sohil-agrawal/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/agrawalsohil" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div>© <span id="yr">2026</span> Sohil Agrawal · Data &amp; AI Solution Architect</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
